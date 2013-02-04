@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-LUVIT_VERSION="0.4.0"
+LUVIT_VERSION="0.6.0"
 
 cd $OPENSHIFT_DATA_DIR
 
@@ -24,10 +24,13 @@ else
   cd luvit-${LUVIT_VERSION}
 
   ./configure --prefix=${OPENSHIFT_DATA_DIR}luvit
-  make
-  make install
+  make -C out
+
+  mv ./out/Debug ..
 
   cd ..
+
+  mv Debug luvit
 
   echo $LUVIT_VERSION > luvit/VERSION
 
@@ -35,12 +38,12 @@ else
 
 fi
 
-PATH="${OPENSHIFT_DATA_DIR}luvit/bin:$PATH"
+PATH="${OPENSHIFT_DATA_DIR}luvit:$PATH"
 
 cd $OPENSHIFT_REPO_DIR
 
 CMD="luvit server.lua"
 
-nohup $CMD > $OPENSHIFT_LOG_DIR/luvit.log 2>&1 &
+nohup $CMD > $OPENSHIFT_DIY_LOG_DIR/luvit.log 2>&1 &
 
-echo $! > ${OPENSHIFT_RUNTIME_DIR}luvit.pid
+echo $! > ${OPENSHIFT_DIY_LOG_DIR}luvit.pid
