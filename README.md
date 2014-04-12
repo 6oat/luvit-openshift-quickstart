@@ -1,10 +1,10 @@
 # OpenShift QuickStart for Luvit
 
-Luvit is an attempt to do something crazy by taking node.js awesome architecture and dependencies and seeing how it fits in the Lua language.
+Luvit is an attempt to do something crazy by taking node.js architecture and dependencies and seeing how it fits in the Lua language.
 
 ## Status
 
-This project is still under heavy development, but it's showing promise. In initial benchmarking with a hello world server, this is between 2 and 4 times faster than node.js. Version 0.6.0 is the latest release version.
+This project is still under heavy development, but it's showing promise. Initial benchmarking with a hello world server is between 2 and 4 times faster than node.js. Version 0.6.0 is the latest release version.
 
 ## Installation
 
