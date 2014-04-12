@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ${OPENSHIFT_DIY_LOG_DIR}
+cd ${OPENSHIFT_LOG_DIR}
 
 kill `cat luvit.pid`
 

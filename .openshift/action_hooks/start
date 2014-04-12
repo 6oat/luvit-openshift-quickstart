@@ -44,6 +44,6 @@ cd $OPENSHIFT_REPO_DIR
 
 CMD="luvit server.lua"
 
-nohup $CMD > $OPENSHIFT_DIY_LOG_DIR/luvit.log 2>&1 &
+nohup $CMD > $OPENSHIFT_LOG_DIR/luvit.log 2>&1 &
 
-echo $! > ${OPENSHIFT_DIY_LOG_DIR}luvit.pid
+echo $! > ${OPENSHIFT_LOG_DIR}luvit.pid
