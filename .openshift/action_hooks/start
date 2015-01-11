@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LUVIT_VERSION="0.6.0"
+LUVIT_VERSION="0.8.2"
 
 cd $OPENSHIFT_DATA_DIR
 
@@ -16,7 +16,7 @@ else
     rm -rf luvit
   fi
 
-  curl -o luvit.tar.gz "https://raw.github.com/luvit/luvit-releases/master/${LUVIT_VERSION}/luvit-${LUVIT_VERSION}.tar.gz"
+  curl -o luvit.tar.gz "https://luvit.io/dist/latest/luvit-${LUVIT_VERSION}.tar.gz"
 
   tar -xf luvit.tar.gz
   rm luvit.tar.gz
