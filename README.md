@@ -18,7 +18,7 @@ and enter the directory
 
 Add this repository as new remote
 
-	git remote add upstream -m master git://github.com/openshift-quickstart/luvit-openshift-quickstart.git
+	git remote add upstream -m master git://github.com/6oat/luvit-openshift-quickstart.git
 
 and pull locally
 
@@ -32,6 +32,6 @@ Now, your application is available at
 
 	http://$name-$namespace.rhcloud.com
 
-## Configuration
+## NOTES
 
-Luvit version is configurable in .openshift/action_hooks/start
+I changed this to run the Luvit install script from their website.
