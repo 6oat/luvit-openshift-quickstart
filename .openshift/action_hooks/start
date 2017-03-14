@@ -1,48 +1,30 @@
 #!/bin/bash
 
-LUVIT_VERSION="0.8.2"
+
 
 cd $OPENSHIFT_DATA_DIR
 
 if [ -d "luvit" ] && [ "`cat luvit/VERSION`" == $LUVIT_VERSION ]; then
 
-  echo "Luvit $LUVIT_VERSION already installed"
+  echo "Luvit already installed"
 
 else
 
-  echo "Installing Luvit ${LUVIT_VERSION}"
+  echo "Installing latest Luvit"
 
   if [ -d "luvit" ]; then
     rm -rf luvit
   fi
 
-  curl -o luvit.tar.gz "https://luvit.io/dist/latest/luvit-${LUVIT_VERSION}.tar.gz"
-
-  tar -xf luvit.tar.gz
-  rm luvit.tar.gz
-
-  cd luvit-${LUVIT_VERSION}
-
-  ./configure --prefix=${OPENSHIFT_DATA_DIR}luvit
-  make -C out
-
-  mv ./out/Debug ..
-
-  cd ..
-
-  mv Debug luvit
-
-  echo $LUVIT_VERSION > luvit/VERSION
-
-  rm -rf luvit-${LUVIT_VERSION}
+  curl -L https://github.com/luvit/lit/raw/master/get-lit.sh | sh
 
 fi
 
-PATH="${OPENSHIFT_DATA_DIR}luvit:$PATH"
+PATH="${OPENSHIFT_DATA_DIR}:$PATH"
 
 cd $OPENSHIFT_REPO_DIR
 
-CMD="luvit server.lua"
+CMD="luvit main.lua"
 
 nohup $CMD > $OPENSHIFT_LOG_DIR/luvit.log 2>&1 &
 
